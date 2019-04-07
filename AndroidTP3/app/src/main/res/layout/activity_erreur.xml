@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ErreurActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ERREUR(S)" />
+
+    <TextView
+        android:id="@+id/nb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Nombre d'erreurs : " />
+
+    <Button
+        android:id="@+id/content_erreur__corriger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="CORRIGER MES ERREURS"
+        android:onClick="corriger"
+        />
+
+
+    <Button
+        android:id="@+id/content_erreur_nouvtable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="CHOISIR UNE AUTRE TABLE"
+        android:onClick="autreTable"
+        />
+
+
+
+</LinearLayout>

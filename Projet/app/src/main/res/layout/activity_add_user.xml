@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".AddUserActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MES INFORMATIONS"
+        android:textColor="#FFF"
+        android:textSize="23sp"
+        android:layout_gravity="center"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:text="Pseudo : " />
+
+        <EditText
+            android:id="@+id/pseudo_id"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:layout_gravity="center"
+            android:inputType="textPersonName"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:text="Age : " />
+
+        <NumberPicker
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="Je suis : " />
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/sexe"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"
+                android:checkedButton="@+id/garcon"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/garcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                    android:text="Garçon" />
+
+                <RadioButton
+                    android:id="@+id/fille"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                    android:text="Fille" />
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="143dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:layout_marginLeft="10dp"
+                android:text="Prendre une photo"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/takephoto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:src="@drawable/cam"
+                android:onClick="takePic"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:text="Choisir une photo"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:src="@drawable/gallery"
+                android:onClick="choosePic"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="-25dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/save"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="112dp"
+            android:gravity="center"
+            android:src="@drawable/save" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

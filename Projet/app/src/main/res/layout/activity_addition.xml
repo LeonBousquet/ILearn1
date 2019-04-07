@@ -62,17 +62,6 @@
             android:onClick="valider"
             />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:layout_gravity="center"
-            android:text="CHANGER DE JOUEUR"
-            android:onClick="valider"
-            android:visibility="invisible"
-            />
-
         <TextView
             android:id="@+id/correction"
             android:layout_width="wrap_content"

@@ -102,11 +102,8 @@ public class AdditionActivity extends AppCompatActivity {
 
             Button choixJeu = (Button) findViewById(R.id.valider);
 
-            Button login = (Button) findViewById(R.id.login);
 
-            login.setVisibility(view.VISIBLE);
-
-            choixJeu.setText("CHOISIR UN JEU");
+            choixJeu.setText("RETOUR AUX JEUX");
 
             score = ((MyApp) this.getApplication()).getScore();
 
@@ -122,13 +119,6 @@ public class AdditionActivity extends AppCompatActivity {
                 }
             });
 
-            login.setOnClickListener( new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                }
-            });
         }
 
         else {

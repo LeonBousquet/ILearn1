@@ -18,7 +18,7 @@
             android:textColor="#FFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:text="Score: 0"
             android:freezesText="true"/>
 
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_score"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:text="Question: 1/x"
             android:textColor="#FFF"
             android:freezesText="true"/>
@@ -40,7 +40,7 @@
             android:layout_gravity="right"
             android:text="00:30"
             android:textColor="#FFF"
-            android:textSize="50dp"
+            android:textSize="50sp"
             android:freezesText="true"/>
 
     </LinearLayout>
@@ -62,7 +62,7 @@
             android:text=""
             android:textAlignment="center"
             android:textColor="#FFF"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:freezesText="true"/>
 
         <RadioGroup
@@ -105,7 +105,7 @@
             android:id="@+id/button_confirm_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:layout_below="@id/question_rep"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"

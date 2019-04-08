@@ -15,7 +15,7 @@
         android:textColor="#FFF"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:gravity="center"
         android:text="Choisis la table de multiplication"
         />
@@ -34,7 +34,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_gravity="center"
         android:text="Valider"
         android:onClick="click"/>

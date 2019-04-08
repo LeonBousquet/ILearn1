@@ -37,9 +37,6 @@ public class AddUserActivity extends AppCompatActivity {
     private RadioButton garçon;
     private RadioButton fille;
 
-    static final int CAM_REQUEST = 1;
-    private int STORAGE_PERMISSION_CODE = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,70 +68,7 @@ public class AddUserActivity extends AppCompatActivity {
         });
     }
 
-    public void takePic(View view) {
 
-        if(ContextCompat.checkSelfPermission(AddUserActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permission déjà donnée", Toast.LENGTH_SHORT).show();
-        } else {
-            requestStoragePermissions();
-        }
-
-
-    }
-
-    public void choosePic(View view) {
-
-        if(ContextCompat.checkSelfPermission(AddUserActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Permission déjà donnée", Toast.LENGTH_SHORT).show();
-        } else {
-            requestStoragePermissions();
-        }
-
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==CAM_REQUEST && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            save.setImageBitmap(imageBitmap);
-        }
-
-    }
-
-    private void requestStoragePermissions() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            new AlertDialog.Builder(this).setTitle("Demande de permission").setMessage("Cette permission est nécessaire pour accéder à vos photos").setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    ActivityCompat.requestPermissions(AddUserActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-
-                }
-            })
-                    .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .create().show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-        }
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == STORAGE_PERMISSION_CODE) {
-            if(grantResults.length > 0 && grantResults[0]==PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this,"Permission accordée",Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Permission non  accordée", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 
     private void saveUser() {
 

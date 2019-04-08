@@ -20,18 +20,21 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.example.bousquleProjet.QuizActivity" />
         <activity android:name="com.example.bousquleProjet.AdditionActivity"
+            android:screenOrientation="portrait"
           />
         <activity android:name="com.example.bousquleProjet.AddUserActivity"
+            android:screenOrientation="portrait"
        />
-        <activity android:name="com.example.bousquleProjet.ChoixTables" />
+        <activity android:name="com.example.bousquleProjet.ChoixTables"
+            android:screenOrientation="portrait" />
         <activity android:name="com.example.bousquleProjet.MultiplicationsActivity"
-         />
+            android:screenOrientation="portrait" />
         <activity android:name="com.example.bousquleProjet.MathsActivity"
            />
         <activity android:name="com.example.bousquleProjet.JeuActivity"
          />
 
-        <activity android:name="com.example.bousquleProjet.MainActivity" >
+        <activity android:name="com.example.bousquleProjet.MainActivity" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

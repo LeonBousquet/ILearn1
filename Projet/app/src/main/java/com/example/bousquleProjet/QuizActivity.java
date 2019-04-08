@@ -26,7 +26,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private DBClient mDb;
     public static final String EXTRA_SCORE = "extraScore";
-    private static final long COUNTDOWN_IN_MILLIS = 25000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
 
     private static final String KEY_SCORE = "keyScore";
     private static final String KEY_QUESTION_COUNT = "keyQuestionCount";

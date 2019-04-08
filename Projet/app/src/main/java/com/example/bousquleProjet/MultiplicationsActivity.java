@@ -105,14 +105,8 @@ public class MultiplicationsActivity extends AppCompatActivity {
 
         }
 
-        if(nbErreurs > 0) {
-            correction.setText("Dommage, " + nbErreurs + " " + "erreurs");
-        }
-
-        else {
-            correction.setText("Félicitations !!");
-            correction.setTextColor(Color.parseColor("#008000"));
-        }
+            correction.setText("Score: " + (10-nbErreurs) + " " + "/ 10");
+             correction.setTextColor(Color.parseColor("#008000"));
 
         saveScore(10-nbErreurs);
 
@@ -131,8 +125,9 @@ public class MultiplicationsActivity extends AppCompatActivity {
 
     private void saveScore(final int score) {
 
-        // Récupérer les informations contenues dans les vues
+
        final int userId;
+
         userId = ((MyApp) this.getApplication()).getId();
 
 

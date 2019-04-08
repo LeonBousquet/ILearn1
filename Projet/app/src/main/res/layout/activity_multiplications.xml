@@ -16,7 +16,7 @@
         android:text="Multiplications : "
         android:layout_gravity="center_horizontal"
         android:textColor="#FFF"
-        android:textSize="24dp"/>
+        android:textSize="24sp"/>
 
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:id="@+id/valider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:text="VALIDER"
             android:onClick="valider"
@@ -53,7 +53,7 @@
             android:text=""
             android:layout_gravity="center"
             android:textColor="#F00"
-            android:textSize="20dp"/>
+            android:textSize="20sp"/>
 
 
     </LinearLayout>

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.bousquleProjet.DB.DBClient;
 
+import java.util.Collections;
 import java.util.Random;
 
 public class AdditionActivity extends AppCompatActivity {
@@ -26,9 +27,13 @@ public class AdditionActivity extends AppCompatActivity {
     int nbOpe;
     int score;
     private DBClient mDb;
+    EditText resultat;
+    TextView correction;
 
-    final int min = 2;
-    final int max = 30;
+    final int min = 4;
+    final int max = 60;
+     int nb1;
+     int nb2;
 
 
     @Override
@@ -38,24 +43,13 @@ public class AdditionActivity extends AppCompatActivity {
 
         mDb = DBClient.getInstance(getApplicationContext());
 
-        if(((MyApp) this.getApplication()).getNbOpe() != 0) {
-            Log.d("rien faire","rien faire");
-        }
+        resultat = (EditText) findViewById(R.id.resultat);
 
-        else {
+            nb1 = new Random().nextInt((max - min) + 1) + min;
+            nb2 = new Random().nextInt((max - min) + 1) + min;
 
-            ((MyApp) this.getApplication()).setNbOpe(0);
-            ((MyApp) this.getApplication()).setScore(10);
-        }
-
-
-
-        final int nb1 = new Random().nextInt((max - min) + 1) + min;
-        final int nb2 = new Random().nextInt((max - min) + 1) + min;
-
-        nombre1 = getIntent().getIntExtra(NOMBRE1_KEY,nb1);
-        nombre2 = getIntent().getIntExtra(NOMBRE2_KEY,nb2);
-
+            nombre1 = getIntent().getIntExtra(NOMBRE1_KEY,nb1);
+            nombre2 = getIntent().getIntExtra(NOMBRE2_KEY,nb2);
 
         createCalcul();
     }
@@ -72,10 +66,7 @@ public class AdditionActivity extends AppCompatActivity {
     public void valider(View view)
     {
 
-        TextView correction = (TextView) findViewById(R.id.correction);
-
-
-        EditText resultat = (EditText) findViewById(R.id.resultat);
+        correction = (TextView) findViewById(R.id.correction);
 
         resultat.setFocusable(false);
 
@@ -88,33 +79,36 @@ public class AdditionActivity extends AppCompatActivity {
             resultat.setTextColor(Color.parseColor("#FF0000"));
             correction.setText("Réponse : " + (nombre1+nombre2));
             correction.setTextColor(Color.parseColor("#008000"));
-            score = ((MyApp) this.getApplication()).getScore();
-            score--;
-            ((MyApp) this.getApplication()).setScore(score);
         }
         else {
             resultat.setTextColor(Color.parseColor("#008000"));
             correction.setText("Félicitations !!");
             correction.setTextColor(Color.parseColor("#008000"));
+            score = ((MyApp) this.getApplication()).getScore();
+            score++;
+            ((MyApp) this.getApplication()).setScore(score);
         }
 
         if(((MyApp) this.getApplication()).getNbOpe() == 9) {
 
             Button choixJeu = (Button) findViewById(R.id.valider);
 
-
             choixJeu.setText("RETOUR AUX JEUX");
 
-            score = ((MyApp) this.getApplication()).getScore();
+           // score = ((MyApp) this.getApplication()).getScore();
 
-            saveScore(score);
+            //saveScore(score);
 
             correction.setText("Ton score : " + score + " /10");
+
+            ((MyApp) this.getApplication()).setNbOpe(0);
+            ((MyApp) this.getApplication()).setScore(0);
 
             choixJeu.setOnClickListener( new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(),JeuActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    finish();
                     startActivity(intent);
                 }
             });
@@ -145,9 +139,7 @@ public class AdditionActivity extends AppCompatActivity {
                 }
             });
 
-
         }
-
 
     }
 
@@ -172,17 +164,20 @@ public class AdditionActivity extends AppCompatActivity {
                 return true;
             }
 
-
         }
 
         SaveScore st = new SaveScore();
         st.execute();
     }
 
+
     @Override
     public void onBackPressed() {
-        finish();
+        score = ((MyApp) this.getApplication()).getScore();
+        saveScore(score);
         ((MyApp) this.getApplication()).setNbOpe(0);
+        ((MyApp) this.getApplication()).setScore(0);
+        finish();
     }
 
 

@@ -44,7 +44,7 @@ public class TaskAdapter extends ArrayAdapter<User> {
 
 
         //
-        pseudo.setText(user.getPseudo());
+        pseudo.setText(user.getPseudo() + " " + "(" + user.getAge() + " " + "ans" + ")");
         image.setImageResource(user.getPhoto());
         score.setText("Score : " + " " +user.getScore());
 

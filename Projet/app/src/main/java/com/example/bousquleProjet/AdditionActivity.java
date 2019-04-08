@@ -95,9 +95,9 @@ public class AdditionActivity extends AppCompatActivity {
 
             choixJeu.setText("RETOUR AUX JEUX");
 
-           // score = ((MyApp) this.getApplication()).getScore();
+            score = ((MyApp) this.getApplication()).getScore();
 
-            //saveScore(score);
+            saveScore(score);
 
             correction.setText("Ton score : " + score + " /10");
 

@@ -24,7 +24,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db) { //créé la table contenant les questions et les réponses
         this.db = db;
 
         final String SQL_CREATE_QUESTIONS_TABLE = "CREATE TABLE " +
@@ -46,6 +46,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
         onCreate(db);
     }
+
+    // rajouter des questions à la table avec les réponses possibles
 
     private void fillQuestionsTable() {
         Question q1 = new Question("Donner la racine carrée de 25", "12", "2", "5", 3);

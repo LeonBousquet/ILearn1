@@ -45,9 +45,12 @@ public class AdditionActivity extends AppCompatActivity {
 
         resultat = (EditText) findViewById(R.id.resultat);
 
+
+            // génération de 2 nombres aléatoires pour les opérations
             nb1 = new Random().nextInt((max - min) + 1) + min;
             nb2 = new Random().nextInt((max - min) + 1) + min;
 
+            // récupération des opérandes contenus dans les extra d'intent. Si pas de valeur : prendre les 2 nb générés juste avant
             nombre1 = getIntent().getIntExtra(NOMBRE1_KEY,nb1);
             nombre2 = getIntent().getIntExtra(NOMBRE2_KEY,nb2);
 
@@ -70,10 +73,14 @@ public class AdditionActivity extends AppCompatActivity {
 
         resultat.setFocusable(false);
 
+        // si pas de réponse par l'utilisateur on met "0" pour pouvoir faire la compaison (toujours faux)
+
         if(resultat.getText().toString().equals(""))
         {
             resultat.setText("0");
         }
+
+        // comparaison entre résultat attendu et celui de l'utilisateur
 
         if(Integer.parseInt(resultat.getText().toString()) != (nombre1 + nombre2)) {
             resultat.setTextColor(Color.parseColor("#FF0000"));
@@ -84,12 +91,12 @@ public class AdditionActivity extends AppCompatActivity {
             resultat.setTextColor(Color.parseColor("#008000"));
             correction.setText("Félicitations !!");
             correction.setTextColor(Color.parseColor("#008000"));
-            score = ((MyApp) this.getApplication()).getScore();
-            score++;
-            ((MyApp) this.getApplication()).setScore(score);
+            score = ((MyApp) this.getApplication()).getScore(); // récupérer le score contenu dans la variable globale
+            score++; // on incrémente
+            ((MyApp) this.getApplication()).setScore(score); // et on la sauve de nouveau
         }
 
-        if(((MyApp) this.getApplication()).getNbOpe() == 9) {
+        if(((MyApp) this.getApplication()).getNbOpe() == 9) { // si le nb d'opérations (dans la variable globale) effectuées est égale à 9
 
             Button choixJeu = (Button) findViewById(R.id.valider);
 
@@ -108,8 +115,8 @@ public class AdditionActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(),JeuActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    finish();
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -134,8 +141,8 @@ public class AdditionActivity extends AppCompatActivity {
                     intent.putExtra(AdditionActivity.NOMBRE1_KEY,nombre1);
                     intent.putExtra(AdditionActivity.NOMBRE2_KEY,nombre2);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    finish();
                     startActivity(intent);
+                    finish();
                 }
             });
 
